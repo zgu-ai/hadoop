@@ -533,37 +533,35 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
       </build>
     </profile>
 
-    <profiles>
-      <profile>
-        <id>hdfs-coverage</id>
-        <build>
-          <plugins>
-            <plugin>
-              <groupId>org.jacoco</groupId>
-              <artifactId>jacoco-maven-plugin</artifactId>
-              <version>0.8.12</version>
-              <executions>
-                <!-- Attach JaCoCo agent to tests -->
-                <execution>
-                  <id>prepare-agent</id>
-                  <goals>
-                    <goal>prepare-agent</goal>
-                  </goals>
-                </execution>
-                <!-- Generate HTML report after tests -->
-                <execution>
-                  <id>report</id>
-                  <phase>test</phase>
-                  <goals>
-                    <goal>report</goal>
-                  </goals>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
-        </build>
-      </profile>
-    </profiles>
+    <profile>
+      <id>hdfs-coverage</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.12</version>
+            <executions>
+              <!-- Attach JaCoCo agent to tests -->
+              <execution>
+                <id>prepare-agent</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <!-- Generate HTML report after tests -->
+              <execution>
+                <id>report</id>
+                <phase>test</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
 
 
     <!-- profile to test shell code -->
