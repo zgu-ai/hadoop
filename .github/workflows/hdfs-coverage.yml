@@ -22,7 +22,8 @@ jobs:
 
       # Run faster tests across the whole HDFS project with coverage
       - name: Run HDFS tests with coverage
-        run: mvn -T 1C -pl hadoop-hdfs-project -Phdfs-coverage -Dtest=*Test* test
+        run: mvn -T 1C -pl hadoop-hdfs-project -Dtest=*Test* test
+
 
       - name: List possible jacoco outputs
         run: |
