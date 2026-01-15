@@ -21,7 +21,7 @@ jobs:
         run: mvn -DskipTests install
 
       - name: Run HDFS tests with coverage
-        run: mvn -pl hadoop-hdfs-project test
+        run: mvn -pl hadoop-hdfs-project -Pcoverage test
 
       - name: List possible jacoco outputs
         run: |
@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: hdfs-jacoco-report
-          path: "**/target/site/jacoco/*.html"
+          path: "hadoop-hdfs-project/**/target/site/jacoco/**"
