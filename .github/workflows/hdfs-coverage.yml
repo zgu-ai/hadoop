@@ -16,16 +16,16 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-
-      - name: List possible jacoco outputs
-        run: |
-          ls -R | grep -i jacoco || true
       
       - name: Build Hadoop (skip tests)
         run: mvn -DskipTests install
 
       - name: Run HDFS tests with coverage
         run: mvn -pl hadoop-hdfs-project test
+
+      - name: List possible jacoco outputs
+        run: |
+          ls -R | grep -i jacoco || true
 
       - name: Upload coverage reports
         uses: actions/upload-artifact@v4
