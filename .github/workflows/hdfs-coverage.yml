@@ -17,6 +17,10 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: List possible jacoco outputs
+        run: |
+          ls -R | grep -i jacoco || true
+      
       - name: Build Hadoop (skip tests)
         run: mvn -DskipTests install
 
