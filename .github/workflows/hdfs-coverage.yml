@@ -20,8 +20,9 @@ jobs:
       - name: Build Hadoop (skip tests)
         run: mvn -DskipTests install
 
+      # Run faster tests across the whole HDFS project with coverage
       - name: Run HDFS tests with coverage
-        run: mvn -pl hadoop-hdfs-project/hadoop-hdfs -Phdfs-coverage test
+        run: mvn -T 1C -pl hadoop-hdfs-project -Phdfs-coverage -Dtest=*Test* test
 
       - name: List possible jacoco outputs
         run: |
@@ -31,5 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: hdfs-jacoco-report
-          path: "hadoop-hdfs-project/hadoop-hdfs/target/site/jacoco/**"
-
+          path: "hadoop-hdfs-project/**/target/site/jacoco/**"
